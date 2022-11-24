@@ -38,6 +38,7 @@ export default class HelloWorldScene extends Phaser.Scene {
       this.load.spritesheet("catWarrior", "assets/cat_fighter_spritemap.png", {
         frameWidth: 64,
         frameHeight: 64,
+        endFrame: 13,
       });
     };
     charLoader();
@@ -93,6 +94,16 @@ export default class HelloWorldScene extends Phaser.Scene {
       repeat: -1,
     });
 
+    this.anims.create({
+      key: "jump",
+      frames: this.anims.generateFrameNames("catWarrior", {
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    });
+
     this.cursors = this.input.keyboard.createCursorKeys();
   }
 
@@ -113,6 +124,7 @@ export default class HelloWorldScene extends Phaser.Scene {
 
     if (this.cursors.up?.isDown && this.player?.body.touching.down) {
       this.player.setVelocityY(-300);
+      this.player.anims.play("jump", true);
     }
   }
 }
