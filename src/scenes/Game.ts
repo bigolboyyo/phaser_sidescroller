@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 
-export default class HelloWorldScene extends Phaser.Scene {
+export default class Game extends Phaser.Scene {
   private platforms?: Phaser.Physics.Arcade.StaticGroup;
   private player?: Phaser.Physics.Arcade.Sprite;
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -9,26 +9,9 @@ export default class HelloWorldScene extends Phaser.Scene {
     super("hello-world");
   }
 
-  preload() {
-    // parallax loading
-    const parallaxLoader = () => {
-      this.load.image("background", "assets/parallax/parallax-mountain-bg.png");
-      this.load.image(
-        "background-far",
-        "assets/parallax/parallax-mountain-montain-far.png"
-      );
-      this.load.image(
-        "mountains",
-        "assets/parallax/parallax-mountain-mountains.png"
-      );
-      this.load.image("trees", "assets/parallax/parallax-mountain-trees.png");
-      this.load.image(
-        "background-fg",
-        "assets/parallax/parallax-mountain-foreground-trees.png"
-      );
-    };
-    parallaxLoader();
+  init() {}
 
+  preload() {
     const blockLoader = () => {
       this.load.image("block", "assets/png/block.png");
     };
@@ -45,16 +28,6 @@ export default class HelloWorldScene extends Phaser.Scene {
   }
 
   create() {
-    // adding parallax
-    const parallaxCreation = () => {
-      this.add.image(437.5, 300, "background").setDisplaySize(875, 600);
-      this.add.image(437.5, 300, "background-far").setDisplaySize(875, 600);
-      this.add.image(437.5, 300, "mountains").setDisplaySize(875, 600);
-      this.add.image(437.5, 300, "trees").setDisplaySize(875, 600);
-      this.add.image(437.5, 300, "background-fg").setDisplaySize(875, 600);
-    };
-    parallaxCreation();
-
     this.platforms = this.physics.add
       .staticGroup({
         key: "block",

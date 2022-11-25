@@ -2,7 +2,8 @@
 
 import Phaser from "phaser";
 
-import HelloWorldScene from "./scenes/HelloWorldScene";
+import Game from "./scenes/Game";
+import ParallaxBackground from "./scenes/ParallaxBackground";
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -15,7 +16,7 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: true,
     },
   },
-  scene: [HelloWorldScene],
+  scene: [ParallaxBackground, Game],
 };
 
 export default new Phaser.Game(config);
