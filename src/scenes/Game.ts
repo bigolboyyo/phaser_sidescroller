@@ -16,7 +16,9 @@ export default class Game extends Phaser.Scene {
     super("main-game");
   }
 
-  init() {}
+  init() {
+    this.physics.world.setBounds(-100, 0, this.scale.width * 11, 600);
+  }
 
   preload() {
     blockLoader(this);

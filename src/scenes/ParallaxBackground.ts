@@ -12,18 +12,10 @@ export default class ParallaxBackground extends Phaser.Scene {
   init() {
     let allScenes = this.game.scene.scenes;
     let mainGame = allScenes[1].scene;
-
     mainGame.start();
-
-    // this.physics.world.setBounds(-35, 0, 7000, this.scale.height, false, true);
   }
 
   preload() {
-    // background
-    // background-far
-    // mountains
-    // trees
-    // background-fg
     parallaxLoader(this);
 
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -34,8 +26,6 @@ export default class ParallaxBackground extends Phaser.Scene {
     const height = this.scale.height;
     const totalWidth = width * 11;
     this.maximumCamWidth = width * 11;
-
-    // set out of boundary space on left side of screen. char will die if falls past a certain point
 
     createParallaxAlignment(this, totalWidth, "background", 0.1, width, 600);
     createParallaxAlignment(this, totalWidth, "background-far", 0.25, 875, 600);
