@@ -10,7 +10,12 @@ export default class ParallaxBackground extends Phaser.Scene {
   }
 
   init() {
-    this.game.scene.scenes[1].scene.start();
+    let allScenes = this.game.scene.scenes;
+    let mainGame = allScenes[1].scene;
+
+    mainGame.start();
+
+    // this.physics.world.setBounds(-35, 0, 7000, this.scale.height, false, true);
   }
 
   preload() {
@@ -31,7 +36,6 @@ export default class ParallaxBackground extends Phaser.Scene {
     this.maximumCamWidth = width * 11;
 
     // set out of boundary space on left side of screen. char will die if falls past a certain point
-    // this.scale.canvasBounds.x = -35;
 
     createParallaxAlignment(this, totalWidth, "background", 0.1, width, 600);
     createParallaxAlignment(this, totalWidth, "background-far", 0.25, 875, 600);
@@ -44,7 +48,7 @@ export default class ParallaxBackground extends Phaser.Scene {
 
   update(time: number, delta: number): void {
     const cam = this.cameras.main;
-    const speed = 20;
+    const speed = 10;
 
     // console.info("Cam Scroll X Property:", cam.scrollX);
 
