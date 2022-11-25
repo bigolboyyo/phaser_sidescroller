@@ -6,7 +6,7 @@ export const heroSprite = (scene: any) => {
     .setOffset(26, 25);
 
   scene.player.setBounce(0.1).setCollideWorldBounds(true);
-  scene.cameras.main.startFollow(scene.player);
+  scene.cameras.main.startFollow(scene.player, true, 1, 1, 0, 0);
   scene.cameras.main.setZoom(1.5);
   scene.cameras.main.height = 780;
   scene.physics.add.collider(scene.platforms, scene.player);

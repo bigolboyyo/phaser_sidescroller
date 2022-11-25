@@ -17,7 +17,16 @@ export default class Game extends Phaser.Scene {
   }
 
   init() {
-    this.physics.world.setBounds(-100, 0, this.scale.width * 11, 600);
+    this.physics.world.setBounds(
+      -100,
+      0,
+      this.scale.width,
+      700,
+      true,
+      false,
+      false,
+      false
+    );
   }
 
   preload() {

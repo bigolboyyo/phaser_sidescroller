@@ -24,8 +24,8 @@ export default class ParallaxBackground extends Phaser.Scene {
   create() {
     const width = this.scale.width;
     const height = this.scale.height;
-    const totalWidth = width * 11;
-    this.maximumCamWidth = width * 11;
+    const totalWidth = width * 2;
+    this.maximumCamWidth = width * 2;
 
     createParallaxAlignment(this, totalWidth, "background", 0.1, width, 600);
     createParallaxAlignment(this, totalWidth, "background-far", 0.25, 875, 600);
@@ -42,14 +42,14 @@ export default class ParallaxBackground extends Phaser.Scene {
 
     // console.info("Cam Scroll X Property:", cam.scrollX);
 
-    if (cam.scrollX === this.maximumCamWidth - this.scale.width) {
-      cam.scrollX = -speed;
-    }
+    // if (cam.scrollX === this.maximumCamWidth - this.scale.width) {
+    //   cam.scrollX = -speed;
+    // }
 
-    if (this.cursors?.left.isDown) {
-      cam.scrollX -= speed;
-    } else if (this.cursors?.right.isDown) {
-      cam.scrollX += speed;
-    }
+    // if (this.cursors?.left.isDown) {
+    //   cam.scrollX -= speed;
+    // } else if (this.cursors?.right.isDown) {
+    //   cam.scrollX += speed;
+    // }
   }
 }
